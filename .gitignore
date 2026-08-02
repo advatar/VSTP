@@ -2,3 +2,9 @@
 draft-*.xml
 draft-*.txt
 draft-*.html
+
+# Lean build output
+lean/.lake/
+
+# Rust build output
+reference/target/

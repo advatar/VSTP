@@ -22,6 +22,15 @@ author:
     email: "johan@sellstrom.me"
 
 informative:
+  FIPS204:
+    title: "Module-Lattice-Based Digital Signature Standard"
+    target: "https://doi.org/10.6028/NIST.FIPS.204"
+    seriesinfo:
+      FIPS: "204"
+      DOI: "10.6028/NIST.FIPS.204"
+    author:
+      - org: "National Institute of Standards and Technology"
+    date: 2024-08
   RFC3161:
     title: "Internet X.509 Public Key Infrastructure Time-Stamp Protocol (TSP)"
     target: "https://www.rfc-editor.org/info/rfc3161"
@@ -577,6 +586,28 @@ existing checkpoints under a stronger algorithm and record the re-anchoring as
 a transition of structural class `import` ({{structural}}), so that the
 migration is itself part of the verifiable history rather than an unrecorded
 substitution.
+
+### Post-Quantum Cryptography {#post-quantum}
+
+VSTP records are intended to remain verifiable beyond the useful lifetime of
+classical public-key cryptography. Every conforming profile therefore MUST use
+a post-quantum digital signature algorithm standardized by a recognized
+standards body. A profile MUST NOT define a classical-only conformance mode.
+ML-DSA as standardized in {{FIPS204}} is one qualifying family.
+
+A profile MAY use a hybrid signature construction only when its post-quantum
+component independently authenticates the complete signed input and successful
+verification requires that component. Failure of the classical component MUST
+NOT reduce the security of the post-quantum component or enable acceptance
+without it.
+
+Digest algorithms used for identifiers, commitments, and accumulators MUST
+target at least 128 bits of security against known generic quantum collision
+and preimage attacks. Algorithm agility MUST NOT permit a verifier to silently
+downgrade below this floor. A verifier MUST reject an object that relies on a
+classical-only signature or a digest below this floor and report
+`non-post-quantum-algorithm`; reporting `weak-algorithm` without rejection is
+insufficient in this case.
 
 ### Time {#time}
 
@@ -1429,7 +1460,8 @@ A conforming profile MUST specify:
 
 1. the identity, key resolution, and credential systems used for each principal
    role, and how a verifier resolves a principal to a key offline;
-2. the encoding profile, digest algorithm, and accumulator construction;
+2. the encoding profile, digest algorithm, signature algorithm, and accumulator
+   construction, all satisfying {{post-quantum}};
 3. every representation profile used, with normalization rules complete enough
    for independent implementations to agree bit-exactly;
 4. the authority model, meeting all requirements of {{authority-models}};

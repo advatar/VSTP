@@ -1,0 +1,6 @@
+name = "vstp"
+version = "0.1.0"
+defaultTargets = ["Vstp"]
+
+[[lean_lib]]
+name = "Vstp"

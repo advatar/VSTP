@@ -44,6 +44,10 @@ Two further requirements follow from taking verification seriously:
   may be emitted only when it is attributable to a named, published assurance
   policy.
 
+All conforming cryptographic profiles are post-quantum. Classical-only
+signature modes are not conforming; hybrids are permitted only when acceptance
+requires the post-quantum component over the complete signed input.
+
 ---
 
 ## Documents
@@ -53,6 +57,10 @@ Two further requirements follow from taking verification seriously:
 | `draft-sellstrom-vstp-core-00.md` | Normative | The core specification. Data model, authority requirements, epistemic typing, completeness, verification, disclosure, profiles, IANA registries, security and privacy considerations. |
 | `RATIONALE.md` | Informative | Why the specification is shaped this way. Rejected designs, comparison with related work, open questions. |
 | `PROFILES.md` | Informative | Checklist and template for authoring a domain profile, with the failure modes to check before publishing. |
+| `lean/` | Informative | Lean 4 model and machine-checked proofs of graph acyclicity, authority attenuation, completeness limits, and assurance monotonicity. |
+| `profiles/example-00.md` | Informative | Minimal post-quantum profile used by the executable test vectors. |
+| `reference/` | Informative | Rust offline verifier for Example Profile 00. |
+| `vectors/example-00/` | Informative | Deterministic positive and negative conformance vectors with expected reports. |
 
 Read `RATIONALE.md` first if you want the argument; read the draft if you want
 the requirements.
@@ -78,6 +86,9 @@ pipx install xml2rfc
 
 make            # produces .txt and .html
 make check      # build and fail on any xml2rfc Error
+make lean       # build the Lean 4 formal model
+make lean-check # build it and audit theorem axioms / reject sorry
+make reference-check # test the post-quantum reference verifier and vectors
 make clean
 ```
 

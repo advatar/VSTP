@@ -28,7 +28,8 @@ than during a dispute.
 
 ## Checklist
 
-A conforming profile must specify all fourteen. Items marked **⚠** are the ones
+A conforming profile must specify all fourteen requirements in core §13.1.
+Items marked **⚠** are the ones
 most often skipped and most consequential.
 
 ### Identity and keys
@@ -47,7 +48,13 @@ most often skipped and most consequential.
 
 - [ ] Encoding profile identifier, satisfying determinism, injectivity, domain
       separation, and bounds (core §4.1.1).
+- [ ] **⚠** A post-quantum signature algorithm standardized by a recognized
+      standards body. Classical-only modes are non-conforming. If a hybrid is
+      used, acceptance must require its post-quantum component over the complete
+      signed input (core §4.1.5).
 - [ ] Digest algorithm(s), and the acceptability policy verifiers should apply.
+      They must retain at least 128 bits of security against known generic
+      quantum collision and preimage attacks.
 - [ ] Accumulator construction for checkpoints, and whether it supports
       non-inclusion proofs.
 - [ ] Commitment construction where hiding commitments are used.

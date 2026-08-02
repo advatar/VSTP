@@ -1,0 +1,14 @@
+{
+  "valid": false,
+  "transition_id": "da9c93f22fb7c87dfc8c857a241ac3bf3f5113d3ec2df022d92214238626992972ada5e6a50716e1985e8d6b6fec870b",
+  "assurance": {
+    "record_integrity": "verified",
+    "attribution": "contradicted",
+    "authority": "verified",
+    "graph_continuity": "not-established",
+    "disclosure_completeness": "declared"
+  },
+  "findings": [
+    "signature-invalid"
+  ]
+}
