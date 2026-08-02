@@ -1,0 +1,4 @@
+# Generated draft artifacts — rebuild with `make`
+draft-*.xml
+draft-*.txt
+draft-*.html
