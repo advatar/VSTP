@@ -1,0 +1,105 @@
+{
+  "context": {
+    "chain_id": "urn:actum:testnet:chain-01",
+    "genesis_commitment": "8f6f3ffce0dd3f5d2e5c5f5f7b58cc4e9f7a5c0d44d6ed8b5c7bb5bbf2e7d3aef",
+    "protocol_revision": "actum-v1",
+    "finalized_height": 154782
+  },
+  "action": {
+    "parents": [
+      "f4a7f6a0be8f1d5f9d6e4b1dd1f8a7ff4a4f3d0f7f7a0b4dcf7c5f8f5f6a8ff7bd9de1a3c9f7a6de8f7f8d9a7b4f3a8ec"
+    ],
+    "prior_states": [
+      {
+        "resource": "urn:actum:resource:policy-obj:4f9e",
+        "representation_profile": "actum-state:v1",
+        "representation_version": 1,
+        "algorithm": "sha-384",
+        "digest": "4f372114808df2458287a28addaf514f12a827aa1622d41488d7766c6b5b29a6c8d5042826dd622772c904c5076a76e8",
+        "content": "{\"policy\":\"allow\",\"owner\":\"urn:actum:principal:issuer-alice\",\"status\":\"active\"}"
+      }
+    ],
+    "resulting_states": [
+      {
+        "resource": "urn:actum:resource:policy-obj:4f9e",
+        "representation_profile": "actum-state:v1",
+        "representation_version": 1,
+        "algorithm": "sha-384",
+        "digest": "9ec333f759dbe792ae0c800c7eae127825127242a52522174fd6b0da2bb7ca75225591cf069aa3456c61b5b038398989",
+        "content": "{\"policy\":\"allow\",\"owner\":\"urn:actum:principal:issuer-alice\",\"status\":\"revoked\"}"
+      }
+    ],
+    "actor": "urn:actum:principal:alice",
+    "recorder": "urn:actum:service:actum-exporter",
+    "sequence": 2147,
+    "structural_class": "actum.action",
+    "signature": "b7c8e7a0d7f5a84f0d13e2df0f0f0ca0f4d7a9ccfa5e7f2a5b3a4e5d8a7f9b1c0d2e3f4a5b6c7d8e9f1020304050607",
+    "scope": [
+      {
+        "resource": "urn:actum:resource:policy-obj:4f9e",
+        "structural_class": "actum.action"
+      }
+    ]
+  },
+  "principals": {
+    "actor": "urn:actum:principal:alice",
+    "recorder": "urn:actum:service:actum-exporter"
+  },
+  "authority": {
+    "root_principal": "urn:actum:principal:chain-governance",
+    "root_scope": [
+      {
+        "resource": "urn:actum:resource:policy-obj:4f9e",
+        "structural_class": "actum.action"
+      }
+    ],
+    "delegations": [
+      {
+        "delegator": "urn:actum:principal:chain-governance",
+        "delegate": "urn:actum:principal:policy-admin",
+        "scope": [
+          {
+            "resource": "urn:actum:resource:policy-obj:4f9e",
+            "structural_class": "actum.action"
+          }
+        ]
+      }
+    ]
+  },
+  "disclosed_states": [
+    {
+      "resource": "urn:actum:resource:policy-obj:4f9e",
+      "content": "{\"policy\":\"allow\",\"owner\":\"urn:actum:principal:issuer-alice\",\"status\":\"revoked\",\"evidence\":\"bridge-demo\"}"
+    }
+  ],
+  "evidence": {
+    "policy_decision": {
+      "policy_id": "urn:actum:policy:v2:policy-change",
+      "policy_commitment": "40a52ecc56454ff57826434e087d523c227cb559a8c01b9dbe1d716fbf86d64777bb81c7c55c4067317b07ac4ce95d0b",
+      "decision_hash": "3904464f1caa4a9c72b33adbf1958afcbd017f73bab9b51eb933ffb838af2e339caf3c15e938929184f4a2c68184956d",
+      "decision": "allowed",
+      "effective_until": "2026-09-30T23:59:59Z"
+    },
+  "approvals": [
+    {
+      "approver": "urn:actum:principal:alice-device-1",
+      "method": "hardware-key",
+      "ts": "2026-08-01T12:03:41Z",
+      "signature": "8a9d4a0c..."
+    }
+  ],
+  "finality": {
+      "scheme": "actum-finality-v1",
+      "receipt_id": "ec024f3bd3503879f819f9a6fbb13f4dd57dd6bfc90e74fa0f9646c9a4096c05cb5c16f8509a72444dacf9f472ffe739",
+      "confirmed_height": 154782,
+      "block_digest": "c17f8e6f4bb4b8ec9e9e0f0f6a7c5f8a72a1f5d8e7b3c4a9f2d1e0b3c4a5d6f7"
+    },
+    "external_evidence": [
+      {
+        "kind": "chain_receipt",
+        "id": "urn:actum:receipt:chain:154782",
+        "uri": "https://actum.example/evidence/receipt/154782"
+      }
+    ]
+  }
+}

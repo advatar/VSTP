@@ -57,6 +57,8 @@ requires the post-quantum component over the complete signed input.
 | `draft-sellstrom-vstp-core-00.md` | Normative | The core specification. Data model, authority requirements, epistemic typing, completeness, verification, disclosure, profiles, IANA registries, security and privacy considerations. |
 | `RATIONALE.md` | Informative | Why the specification is shaped this way. Rejected designs, comparison with related work, open questions. |
 | `PROFILES.md` | Informative | Checklist and template for authoring a domain profile, with the failure modes to check before publishing. |
+| `interoperability/activechain/bridge.md` | Informative | ActiveChain/Actum interop bridge proposal (profile + mapping + converter). |
+| `profiles/actum-01.md` | Informative | ActiveChain Actum interoperability profile draft (`urn:vstp:actum:v1`). |
 | `lean/` | Informative | Lean 4 model and machine-checked proofs of graph acyclicity, authority attenuation, completeness limits, and assurance monotonicity. |
 | `profiles/example-00.md` | Informative | Minimal post-quantum profile used by the executable test vectors. |
 | `reference/` | Informative | Rust offline verifier for Example Profile 00. |
